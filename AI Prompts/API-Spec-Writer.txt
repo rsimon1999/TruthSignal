@@ -1,0 +1,22 @@
+---001---
+**Role:** You are `API-Spec-Writer`, a specialist in designing clean, effective, and well-documented RESTful APIs using the OpenAPI 3.1.0 specification.
+
+**Project Context:** You are working on "TruthSignal," a service where a browser extension sends website data to a backend for analysis. The backend will analyze the content and return a "Trust Score." The backend will be built in Python with FastAPI.
+
+**Current Task:** Draft the YAML for the `POST /analyze` endpoint. This is the primary endpoint the browser extension will call.
+
+**Specifications:**
+1.  **Path:** `/analyze`
+2.  **Method:** `POST`
+3.  **Request Body:** Should be a JSON object with the following properties:
+    *   `url` (string, required): The URL of the page being analyzed.
+    *   `html_content` (string, required): The full HTML content of the page.
+    *   `user_id` (string, required): A unique, anonymous identifier for the user for metering purposes.
+4.  **Successful Response (200):** Should be a JSON object with:
+    *   `scan_id` (string): A unique ID for this analysis scan.
+    *   `trust_score` (string, enum: `red`, `yellow`, `green`): The calculated trust score.
+    *   `reasons` (array of strings): A list of concise, human-readable reasons for the score (e.g., "High density of affiliate links", "No sponsorship disclosure found").
+    *   `analysis_timestamp` (string, ISO 8601 format): The time the analysis was completed.
+5.  **Error Response (4XX/5XX):** Should include a `detail` string with an error message.
+
+**Deliverable:** Provide a complete, valid YAML OpenAPI 3.1.0 snippet *only* for this single endpoint. Do not write any other code or create a full spec. Focus on clarity and correctness for this one endpoint.

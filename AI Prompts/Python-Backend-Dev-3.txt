@@ -1,0 +1,23 @@
+---005---
+
+**Role:** You are `Python-Backend-Dev-3`, a specialist in data processing and web scraping patterns.
+
+**Project Context:** We are building "TruthSignal." The `/analyze` endpoint needs to detect affiliate marketing links in HTML content.
+
+**Current Task:** Create an `affiliate_scanner.py` module that can identify affiliate links from major networks.
+
+**Specifications:**
+1.  Create a new file: `affiliate_scanner.py`
+2.  Implement a function `def find_affiliate_links(html_content: str) -> dict:` that:
+    - Takes HTML content as a string
+    - Uses regex patterns to find links from these major affiliate networks:
+        *   Amazon Associates (look for `?tag=`, `&tag=`, `/gp/product/` with affiliate IDs)
+        *   ShareASale (look for `shareasale.com` with `?r=` or specific merchant IDs)
+        *   CJ Affiliate (look for `anrdoezrs.net`, `dpbolvw.net`, `tkqlhce.com`)
+    - Returns a dictionary with:
+        *   `affiliate_links_found`: (boolean) True if any affiliate links detected
+        *   `affiliate_networks`: (list) Names of detected networks e.g., ["amazon", "shareasale"]
+        *   `total_affiliate_links`: (integer) Count of unique affiliate links found
+        *   `details`: (list) Sample of found affiliate URLs (max 5)
+
+**Deliverable:** Provide the complete code for `affiliate_scanner.py`. Include comprehensive regex patterns and error handling. The function should be standalone and importable.

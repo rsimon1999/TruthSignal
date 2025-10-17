@@ -1,0 +1,24 @@
+[Task] Integrate analysis modules with FastAPI endpoint
+TASK
+
+Status: Open.
+#10 In rsimon1999/TruthSignal;· rsimon1999 opened 2 hours ago
+[Project] 1.1.B: Implement Backend Skeleton
+PROJECT
+
+Status: Open.
+#4 In rsimon1999/TruthSignal;· rsimon1999 opened 7 hours ago
+[Task] Draft /analyze endpoint spec
+TASK
+
+Status: Open.
+#3 In rsimon1999/TruthSignal;· rsimon1999 opened 7 hours ago
+[Project] 1.1.A: Define API Specification
+PROJECT
+
+Status: Open.
+#2 In rsimon1999/TruthSignal;· rsimon1999 opened 7 hours ago
+[Epic] Phase 1: Foundation & Backend API
+EPIC
+
+Status: Open.

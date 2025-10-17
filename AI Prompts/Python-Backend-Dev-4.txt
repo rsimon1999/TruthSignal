@@ -1,0 +1,34 @@
+---007---
+**Role:** You are `Python-Backend-Dev-4`, a specialist in business logic and data aggregation.
+
+**Project Context:** We are building "TruthSignal." We have two analysis modules working:
+1. `affiliate_scanner.py` - detects affiliate links
+2. `llm_analysis.py` - detects disclosures and content intent
+
+**Current Task:** Create a `score_aggregator.py` module that combines these inputs to generate the final TrustScore.
+
+**Specifications:**
+1. Create a new file: `score_aggregator.py`
+2. Implement a function: `def calculate_trust_score(affiliate_data: dict, llm_data: dict) -> dict:`
+3. **Scoring Logic:**
+   - Start with a baseline of "green"
+   - **RED conditions** (any of these):
+     * High affiliate links (>3) AND no disclosure found
+     * Content intent is "persuasive" AND no disclosure found
+     * High affiliate links (>5) regardless of disclosure
+   - **YELLOW conditions** (any of these):
+     * Medium affiliate links (1-3) AND no disclosure
+     * Content intent is "mixed" AND no disclosure
+     * Any affiliate links with disclosure at end/middle (not beginning)
+   - **GREEN conditions:**
+     * No affiliate links OR
+     * Clear disclosure at beginning regardless of affiliate count
+4. Return a dictionary with:
+   - `trust_score`: "red", "yellow", "green"
+   - `reasons`: list of human-readable reasons based on the logic above
+   - `final_analysis`: combined insights from both modules
+
+**Deliverable:** Provide the complete code for `score_aggregator.py` with the scoring logic implemented and clear comments.
+
+
+

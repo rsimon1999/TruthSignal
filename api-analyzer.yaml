@@ -1,0 +1,85 @@
+/analyze:
+  post:
+    summary: Analyze website content for trustworthiness
+    description: |
+      Accepts website data from the browser extension and returns a trust score
+      analysis with detailed reasoning.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - url
+              - html_content
+              - user_id
+            properties:
+              url:
+                type: string
+                format: uri
+                description: The URL of the page being analyzed
+                example: "https://example.com/article"
+              html_content:
+                type: string
+                description: The full HTML content of the page
+                example: "<html><body>Article content...</body></html>"
+              user_id:
+                type: string
+                description: A unique, anonymous identifier for the user
+                example: "user_12345"
+    responses:
+      '200':
+        description: Successful analysis
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - scan_id
+                - trust_score
+                - reasons
+                - analysis_timestamp
+              properties:
+                scan_id:
+                  type: string
+                  description: A unique ID for this analysis scan
+                  example: "scan_67890"
+                trust_score:
+                  type: string
+                  enum: [red, yellow, green]
+                  description: The calculated trust score
+                  example: "yellow"
+                reasons:
+                  type: array
+                  items:
+                    type: string
+                  description: Concise, human-readable reasons for the score
+                  example:
+                    - "No author biography found"
+                    - "Multiple affiliate links detected"
+                analysis_timestamp:
+                  type: string
+                  format: date-time
+                  description: ISO 8601 timestamp when analysis was completed
+                  example: "2024-01-15T10:30:45Z"
+      '4XX':
+        description: Client error
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                detail:
+                  type: string
+                  example: "Invalid request: missing required field 'html_content'"
+      '5XX':
+        description: Server error
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                detail:
+                  type: string
+                  example: "Internal server error during analysis processing"

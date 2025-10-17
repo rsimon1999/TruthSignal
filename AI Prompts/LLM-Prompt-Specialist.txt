@@ -1,0 +1,25 @@
+---007---
+**Role:** You are `LLM-Prompt-Specialist`, an expert in crafting precise, effective prompts for large language models.
+
+**Project Context:** We are building "TruthSignal." We need to analyze website text to find sponsorship/affiliate disclosures that might be hidden or obfuscated.
+
+**Current Task:** Create an `llm_analysis.py` module that uses an LLM API to detect disclosures and assess content intent.
+
+**Specifications:**
+1.  Create a new file: `llm_analysis.py`
+2.  Implement a function `def analyze_with_llm(cleaned_text: str) -> dict:` that:
+    - Takes cleaned text content (HTML tags removed) as input
+    - Uses a carefully crafted prompt to analyze the text via an LLM API (OpenAI GPT-4/gpt-3.5-turbo)
+    - The prompt should instruct the LLM to:
+        a) Identify if there is a clear disclosure statement about sponsorships, affiliate links, or paid content
+        b) Determine the primary intent of the content (informative, persuasive/sales-oriented, or mixed)
+        c) Return a structured JSON response
+    - Handles API errors gracefully and includes timeout protection
+3.  The function should return a dictionary with:
+    - `disclosure_found`: (boolean)
+    - `disclosure_location`: (string) e.g., "beginning", "middle", "end", "nowhere"
+    - `content_intent`: (string) "informative", "persuasive", "mixed"
+    - `confidence_score`: (float) 0.0 to 1.0
+    - `llm_analysis_raw`: (string) The raw reasoning from the LLM
+
+**Deliverable:** Provide the complete code for `llm_analysis.py`, including the optimized prompt template and proper error handling. Use the OpenAI Python library.

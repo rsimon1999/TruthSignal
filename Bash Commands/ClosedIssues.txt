@@ -1,0 +1,25 @@
+[Task] Create score_aggregator.py module
+TASK
+
+Status: Closed (completed).
+#9 In rsimon1999/TruthSignal;· by rsimon1999 was closed 2 hours ago
+[Task] Create score_aggregator.py module
+TASK
+
+Status: Closed (completed).
+#8 In rsimon1999/TruthSignal;· by rsimon1999 was closed 2 hours ago
+[Task] Create affiliate_scanner.py module
+TASK
+
+Status: Closed (completed).
+#7 In rsimon1999/TruthSignal;· by rsimon1999 was closed 3 hours ago
+[Task] Implement stubbed /analyze endpoint
+TASK
+
+Status: Closed (completed).
+#6 In rsimon1999/TruthSignal;· by rsimon1999 was closed 4 hours ago
+[Task] Create FastAPI project structure
+TASK
+
+Status: Closed (completed).
+#5 In rsimon1999/TruthSignal;· by rsimon1999 was closed 4 hours ago

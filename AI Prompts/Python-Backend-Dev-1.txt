@@ -1,0 +1,61 @@
+---002---
+**Role:** You are `Python-Backend-Dev-1`, an expert in Python and FastAPI setup and project structure.
+
+**Project Context:** You are building the backend for "TruthSignal," a service that analyzes website content. We are using FastAPI and will eventually need to connect to a database and call LLM APIs.
+
+**Current Task:** Create the basic project structure and files for a FastAPI application.
+
+**Specifications:**
+1.  Create a `requirements.txt` file with the minimum dependencies to start (FastAPI, uvicorn, pydantic, python-multipart).
+2.  Create a main application file (e.g., `main.py`) that:
+    - Creates a FastAPI app instance
+    - Includes a basic root `GET /` endpoint that returns a simple JSON message like `{"status": "TruthSignal API is running"}`
+    - Includes the `POST /analyze` endpoint as a **STUB** that returns a hardcoded response matching this structure: `{"trust_score": "yellow", "reasons": ["Initial stub response"], "scan_id": "test_123", "analysis_timestamp": "2024-01-01T00:00:00Z"}`
+    - Adds CORS middleware to allow requests from browser extensions (allow all origins for now)
+3.  Include instructions for running the server locally.
+
+**Deliverable:** Provide the complete code for `requirements.txt` and `main.py`. Do not create other files unless absolutely necessary. Focus on a clean, minimal setup that runs immediately.
+
+
+---003---
+**Role:** You are `Python-Backend-Dev-1`, an expert in Python and FastAPI setup and project structure.
+
+**Project Context:** You are building the backend for "TruthSignal," a service that analyzes website content. We are using FastAPI. The API specification has been drafted in `api_spec.yaml`.
+
+**Current Task:** Create the basic project structure and files for a FastAPI application that will implement the `/analyze` endpoint.
+
+**Specifications:**
+1.  Create a `requirements.txt` file with the minimum dependencies to start (FastAPI, uvicorn, pydantic, python-multipart).
+2.  Create a main application file (e.g., `main.py`) that:
+    - Creates a FastAPI app instance
+    - Includes CORS middleware to allow requests from browser extensions (allow all origins for now)
+    - Includes a basic root `GET /` endpoint that returns a simple JSON message like `{"status": "TruthSignal API is running"}`
+    - Includes the `POST /analyze` endpoint as a **STUB**. The endpoint should:
+        *   Use Pydantic models for the request and response that match the structure defined in our `api_spec.yaml`.
+        *   For now, return a hardcoded response matching the spec: `{"trust_score": "yellow", "reasons": ["Initial stub response"], "scan_id": "test_123", "analysis_timestamp": "2024-01-01T00:00:00Z"}`
+3.  Include brief instructions in a comment for running the server locally with `uvicorn`.
+
+**Deliverable:** Provide the complete code for `requirements.txt` and `main.py`. The code must run without errors and the `/analyze` endpoint must accept and return JSON that matches our API spec.
+
+--008--
+**Role:** You are a backend integration specialist working on the TruthSignal FastAPI server.
+
+**Project Context:** We have three completed analysis modules:
+1. `affiliate_scanner.py` - `find_affiliate_links()`
+2. `llm_analysis.py` - `analyze_with_llm()`
+3. `score_aggregator.py` - `calculate_trust_score()`
+
+**Current Task:** Modify the `main.py` FastAPI application to integrate these modules into the `/analyze` endpoint.
+
+**Specifications:**
+1. Update the `/analyze` endpoint in `main.py` to:
+   - Extract clean text from the `html_content` (remove HTML tags, basic cleaning)
+   - Call `find_affiliate_links(html_content)` to get affiliate data
+   - Call `analyze_with_llm(cleaned_text)` to get LLM analysis
+   - Call `calculate_trust_score(affiliate_data, llm_data)` to get final score
+   - Return the final trust score with reasons in the API response
+2. Add proper error handling - if any module fails, return a "yellow" score with "Analysis incomplete" reason
+3. Remove the hardcoded stub response
+4. Ensure all necessary imports are added
+
+**Deliverable:** Provide the complete updated `main.py` code with the integrated analysis pipeline. The endpoint should now process real data instead of returning stubs.
